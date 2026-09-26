@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Roulette</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="rays"></div>
+
+  <main class="stage" id="stage">
+    <div class="frame" id="lights"></div>
+    <div class="wheel" id="wheel"><canvas id="wheel-canvas"></canvas></div>
+
+    <svg class="pointer" id="pointer" viewBox="0 0 100 110" aria-hidden="true">
+      <defs>
+        <linearGradient id="ptr-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="0.35" stop-color="#ff4d6d"/>
+          <stop offset="1" stop-color="#b0002a"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 8 H92 L50 102 Z" fill="url(#ptr-grad)" stroke="#ffd54f" stroke-width="8" stroke-linejoin="round"/>
+    </svg>
+
+    <div class="hub" id="hub"><span>TOURNER</span></div>
+  </main>
+
+  <div class="result hidden" id="result">
+    <div class="result-card">
+      <div class="result-title" id="result-title">BRAVO !</div>
+      <div class="result-message" id="result-message"></div>
+      <div class="result-hint">Touchez l'écran pour rejouer</div>
+    </div>
+  </div>
+
+  <canvas class="confetti" id="confetti"></canvas>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

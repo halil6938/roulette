@@ -22,6 +22,19 @@ Exec=$DIR/start.sh
 X-GNOME-Autostart-enabled=true
 DESKTOP
 
+echo "==> Raccourci dans le menu (Jeux > Roulette) pour relancer après avoir quitté"
+mkdir -p "$HOME/.local/share/applications"
+cat >"$HOME/.local/share/applications/roulette.desktop" <<DESKTOP
+[Desktop Entry]
+Type=Application
+Name=Roulette
+Comment=Lancer la roulette des cadeaux
+Exec=$DIR/start.sh
+Icon=applications-games
+Categories=Game;
+Terminal=false
+DESKTOP
+
 echo "==> Désactivation de la mise en veille de l'écran"
 if command -v raspi-config >/dev/null; then
   sudo raspi-config nonint do_blanking 1 || true

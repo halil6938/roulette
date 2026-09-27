@@ -198,3 +198,53 @@ body.spinning .hub { animation: none; }
   pointer-events: none;
   z-index: 20;
 }
+
+/* ---------- Bouton quitter ---------- */
+.quit {
+  position: fixed;
+  top: 2vmin;
+  right: 2vmin;
+  width: 7vmin;
+  height: 7vmin;
+  border: 0.4vmin solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+  font: 900 3.5vmin/1 var(--font);
+  z-index: 30;
+}
+.quit:active { background: rgba(255, 23, 68, 0.6); color: #fff; }
+body.spinning .quit { visibility: hidden; }
+
+.confirm {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 0, 30, 0.75);
+  z-index: 40;
+}
+.confirm.hidden { display: none; }
+.confirm-card {
+  padding: 5vmin 6vmin;
+  border-radius: 4vmin;
+  text-align: center;
+  background: linear-gradient(160deg, #5e35b1 0%, #311b92 100%);
+  border: 0.8vmin solid var(--gold);
+  box-shadow: 0 2vmin 5vmin rgba(0, 0, 0, 0.6);
+}
+.confirm-title { font-size: 6vmin; margin-bottom: 4vmin; }
+.confirm-buttons { display: flex; gap: 4vmin; justify-content: center; }
+.btn {
+  min-width: 22vmin;
+  padding: 2.5vmin 4vmin;
+  border: none;
+  border-radius: 2.5vmin;
+  font: 900 4vmin/1 var(--font);
+  color: #fff;
+  box-shadow: 0 1vmin 0 rgba(0, 0, 0, 0.35);
+}
+.btn:active { transform: translateY(0.6vmin); box-shadow: 0 0.4vmin 0 rgba(0, 0, 0, 0.35); }
+.btn-no  { background: #00c853; }
+.btn-yes { background: #ff1744; }

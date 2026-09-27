@@ -31,6 +31,7 @@ Au démarrage, la roue s'ouvre automatiquement en plein écran (mode kiosque).
 `install.sh` :
 - installe Chromium s'il est absent ;
 - ajoute le lancement automatique (`~/.config/autostart/roulette.desktop`) ;
+- ajoute **Jeux → Roulette** dans le menu, pour relancer après avoir quitté ;
 - désactive la mise en veille de l'écran.
 
 ### Mise à jour automatique
@@ -47,9 +48,12 @@ cd ~/roulette && git pull && sudo reboot
 > Dépôt **privé** ? Le Raspberry a besoin d'un accès : cloner avec un jeton GitHub
 > (`git clone https://<jeton>@github.com/halil6938/roulette.git`) ou une clé SSH.
 
-### Quitter le mode kiosque
+### Quitter / relancer
 
-Brancher un clavier et faire `Alt+F4`, ou en SSH : `pkill chromium`.
+- **Quitter** : toucher la petite **croix ✕ en haut à droite**, puis **OUI, QUITTER**
+  (ou touche `Échap` avec un clavier). On revient au bureau du Raspberry.
+- **Relancer** sans redémarrer : menu Raspberry → **Jeux → Roulette**.
+- En SSH : `pkill chromium` pour quitter.
 Pour désactiver le lancement automatique : `rm ~/.config/autostart/roulette.desktop`.
 
 ## Fichiers

@@ -344,6 +344,11 @@
   stage.addEventListener("pointerdown", (e) => { e.preventDefault(); spin(); });
   result.addEventListener("pointerdown", (e) => { e.preventDefault(); closeResult(); });
   addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      document.getElementById("confirm").classList.toggle("hidden");
+      return;
+    }
+    if (!document.getElementById("confirm").classList.contains("hidden")) return;
     if (e.code === "Space" || e.code === "Enter") {
       e.preventDefault();
       if (showingResult) closeResult();
@@ -351,6 +356,16 @@
     }
   });
   addEventListener("contextmenu", (e) => e.preventDefault());
+
+  // Bouton quitter (avec confirmation). Ferme Chromium et revient au bureau.
+  const quitBtn = document.getElementById("quit");
+  const confirmBox = document.getElementById("confirm");
+  const openConfirm = () => { if (!spinning) confirmBox.classList.remove("hidden"); };
+  const closeConfirm = () => confirmBox.classList.add("hidden");
+  quitBtn.addEventListener("pointerdown", (e) => { e.preventDefault(); e.stopPropagation(); openConfirm(); });
+  confirmBox.addEventListener("pointerdown", (e) => { e.stopPropagation(); if (e.target === confirmBox) closeConfirm(); });
+  document.getElementById("confirm-no").addEventListener("click", closeConfirm);
+  document.getElementById("confirm-yes").addEventListener("click", () => window.close());
 
   buildLights();
   drawWheel();
